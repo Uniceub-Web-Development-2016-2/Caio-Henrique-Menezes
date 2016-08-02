@@ -1,3 +1,9 @@
 <?php
 
-echo "Netbeans n' Windows for life! \,,/_";
+$str = 'Caio';
+
+if(strlen($str) > 6){
+	echo 'Olha aí, menó';
+}else{
+	echo "eça suas String, parça";
+}
