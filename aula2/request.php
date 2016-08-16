@@ -17,62 +17,60 @@ class Request {
 		$this->parameters = $parameters;
 	}
 
-	public function toString($method, $protocol, $ip, $resource, $parameters){
-
-		$url = $getProtocol() ."://".$getIp()."/".$getResource."?".$getMethod()
-		foreach($this->parameters as $key => $value){
-			$parameters = $parameters . $key . "=" . $value . "&";
+        public function toString(){
+		$String = "";
+		$Inc = 1;
+		foreach($this->parameters as $var) {
+			$String .= "P".$Inc."=".$var."&amp";
+			$Inc++;
 		}
-		
-		return $url;
-
-		
-	}
+	return $this->protocol.'://'.$this->ip.'/'.$this->resource.'?'.$String;
+        }
 
 //Get's
 
-	public getMethod(){
+	public function getMethod(){
 		return $this->method;
 	}
 
-	public getProtocol(){
+	public function getProtocol(){
 		return $this->protocol;
 	}
 
-	public getIp(){
+	public function getIp(){
 		return $this->ip;
 	}
 
-	public getResource(){
+	public function getResource(){
 		return $this->resource;
 	}
 
-	public getParameters(){
+	public function getParameters(){
 		return $this->parameters;
 	}
 
 //Set's
 	
-	public setMethod(){
+	public function setMethod(){
 		$this->method = method;
 	}
 	
-	public setProtocol(){
+	public function setProtocol(){
 		$this->protocol = protocol;
 	}	
 	
-	public setIp(){
+	public function setIp(){
 		$this->ip = ip;
 	}	
 	
-	public setResource(){
+	public function setResource(){
 		$this->resource = resource;
 	}	
 	
-	public setParameters(){
+	public function setParameters(){
 		$this->parameters = parameters;
 	}
 }
 
-$request = new Request("get", "http", "google.com", "pesquisa", array("busca" => "cameras", "usuario" => "Caio", "esporte" => "videos"));
+$request = new Request("get", "http", "google.com", "pesquisa", array("NBA", "New York", "Knicks", "Videos"));
 echo $request->toString();
