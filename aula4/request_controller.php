@@ -5,7 +5,7 @@ class RequestController
 {
 	const VALID_METHODS = array('GET', 'POST', 'PUT', 'DELETE');
 
-	const VALID_PROTOCOL = array('HTTP', 'http', 'HTTPS', 'https');
+	const VALID_PROTOCOL = array('HTTP/1.0', 'http/1.0', 'HTTPS/1.0', 'https/1.0', 'HTTP/1.1', 'http/1.1', 'HTTPS/1.1', 'https/1.1');
 
 	public function create_request($request_info)
 	{
@@ -15,7 +15,7 @@ class RequestController
 			
 		}
 
-		if(!self::is_valid_protocol(substr($request_info['SERVER_PROTOCOL'], 0, -4)))
+		if(!self::is_valid_protocol($request_info['SERVER_PROTOCOL']))
 		{
 			return array("code" => "505", "message" => "protocol not allowed");
 		}	
