@@ -364,6 +364,42 @@ paths:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
+            
+  /places/byDistance{distance}:
+    get:
+      tags:
+        - Place
+      summary: Get a Place by distance from User
+      description: ""
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: distance
+          description: Distance from User
+          required: true
+          type: string
+      responses:
+        200:
+          description: Succesful!
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Place'
+        403:
+          description: Forbidden action.
+          schema:
+            $ref: '#/definitions/Forbidden'
+        501:
+          description: Not implemented method
+          schema:
+            $ref: '#/definitions/NotImplemented'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
           
   /places/findCountry{country_name}:
     get: 
