@@ -1,5 +1,11 @@
 <?php
-include('../easytrip/control/request_controller.php');
+include_once('../easytrip/control/request_controller.php');
+
+//$controller = new RequestController();
+//var_dump($controller->execute());
+//die();
+//echo json_encode($controller->execute());
+
 
 $controller = new RequestController();
 $dados = $controller->execute();

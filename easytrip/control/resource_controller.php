@@ -22,10 +22,35 @@ class ResourceController
 
 	private function select($query){
 		$connect = (new DBConnector())->query($query);
-		return $connect->fetchAll();
+		return $connect->fetchAll(PDO::FETCH_ASSOC);
+        	return $connect;
+	}
+
+	private function update($request) {
+		$body = $request->getBody();
+		$resource = $request->getResource();
+		$query = 'UPDATE '.$resource.' SET '. $this->getUpdateCriteria($body);
+		//var_dump($query);
+		return self::execution_query($query);
+        }
+
+	private function create($request) {		
+		$body = $request->getBody();
+		//var_dump($body);
+		$resource = $request->getResource();		
+		$query = 'INSERT INTO '.$resource.' ('.$this->getColumns($body).') VALUES ('.$this->getValues($body).')';
+		return self::execution_query($query);
+		 
 	}
 		
 	private function queryParams($params) {
+
+		$query = "";		
+		foreach($params as $key => $value) {
+			$query .= $key.' = '."'".$value."'".' AND ';	
+		}	
+		
+		$query = substr($query,0,-5);
 		
 		if($params != null){				
 			$query = "";		
@@ -38,6 +63,45 @@ class ResourceController
 			return 1;
 		}
 	}
+
+	private function execution_query($query){
+		$conn = (new DBConnector());
+		//$conn->query($query);
+		//echo ($query);
+
+		if ($conn->query($query) == TRUE) {
+                	echo "New record created successfully!";
+        	} else {
+                	echo "Error: " . $query . "<br>";
+        	}
+	}
+		
+	private function getUpdateCriteria($json){
+		$criteria = "";
+		$where = " WHERE ";
+		$array = json_decode($json, true);
+		foreach($array as $key => $value) {
+			if($key != 'id')
+				$criteria .= $key." = '".$value."',";
+			
+		}
+		return substr($criteria, 0, -1).$where." id = '".$array['id']."'";
+	}
+	
+	private function getColumns($json){
+		$array = json_decode($json, true);
+		$keys = array_keys($array);
+		return implode(",", $keys);
+	
+	}
+
+	private function getValues($json){
+                $array = json_decode($json, true);
+                $values = array_values($array);
+                $string = implode("','", $values);
+		return "'".$string."'";
+        
+        }
 	
 }
 
