@@ -10,7 +10,7 @@
     <meta name="description" content="Source code generated using layoutit.com">
     <meta name="author" content="LayoutIt!">
 
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/easyTrip.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACeINkvYJeWxeaSs7u4ZVJNfmQdCSvE6Q&callback=initMap"></script>
