@@ -1,0 +1,29 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+	<div class="search_user" id="search_user">
+	<h3>Busca de usuário</h3>
+		<form class="form-horizontal" action="search_user.php" method="get">
+			<input type='text' name='name' placeholder='Name...'>
+			<input type='submit' value='submit'>
+		</form>
+	</div>
+
+	<div class="search_cities" id="search_cities">
+	<h3>Busca de cidades</h3>
+		<form class="form-horizontal" action="search_cities.php" method="get">
+			<p>Digite o nome da cidade abaixo:</p>
+			<input type='text' name='cityName' placeholder='City Name...'>
+			<input type='submit' value='submit'>
+		</form>
+		<br>
+		<form class="form-horizontal" action="requests.php" method="get">
+			<input type='submit' value='Procurar todas as cidades'>
+		</form>
+	</div>
+
+</body>
+</html>

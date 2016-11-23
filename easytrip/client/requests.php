@@ -2,8 +2,14 @@
 
 include('httpful.phar');
 
+// $get_request = 'http://localhost/easytrip/server/AllCities';
+// $get_request = '';
 
-$get_request = 'http://127.0.0.1/aula8/user/search?first_name="'.$_GET['search'].'"';
+// $response = \Httpful\Request::get($get_request)->send();
+// echo  $response->body;
+
+
+$get_request = "http://localhost/easytrip/city/search?".{$_GET['search']};
 
 $response = \Httpful\Request::get($get_request)->send();
 

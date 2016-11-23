@@ -1,0 +1,2294 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "EasyTrip",
+        "description": "Aplicação feita para auxiliar e facilitar o planejamento de viagens.",
+        "version": "1.0.0"
+    },
+    "host": "api.easytrip.com",
+    "schemes": [
+        "http",
+        "https"
+    ],
+    "basePath": "/v2",
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/user": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Sign Up New User",
+                "operationId": "NewUser",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "description": "The Log User submit an array of information of the user to register it",
+                "parameters": [
+                    {
+                        "name": "User",
+                        "in": "body",
+                        "description": "User's informations",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/User"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Succesful!",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/User"
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden action.",
+                        "schema": {
+                            "$ref": "#/definitions/Forbidden"
+                        }
+                    },
+                    "501": {
+                        "description": "Not implemented method",
+                        "schema": {
+                            "$ref": "#/definitions/NotImplemented"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/me/{user_id}": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "View Myself Profile",
+                "operationId": "viewMe",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "description": "The User Profile endpoint returns information about the EasyTrip user that has authorized with the application.",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "user_id",
+                        "description": "User's ID",
+                        "required": true,
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "An array of informations about the user registered on the system.",
+                        "schema": {
+                            "type": "string",
+                            "items": {
+                                "$ref": "#/definitions/Profile"
+                            }
+                        }
+                    },
+                    "501": {
+                        "description": "Not implemented method",
+                        "schema": {
+                            "$ref": "#/definitions/NotImplemented"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Edit Myself Profile",
+                "description": "",
+                "operationId": "editMe",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "user_id",
+                        "description": "User's ID",
+                        "required": true,
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "An array of informations about the user registered on the system.",
+                        "schema": {
+                            "type": "string",
+                            "items": {
+                                "$ref": "#/definitions/Profile"
+                            }
+                        }
+                    },
+                    "501": {
+                        "description": "Not implemented method",
+                        "schema": {
+                            "$ref": "#/definitions/NotImplemented"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Delete Myself Profile",
+                "description": "",
+                "operationId": "deleteMe",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "user_id",
+                        "description": "User's ID",
+                        "required": true,
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Succesful!"
+                    },
+                    "403": {
+                        "description": "Forbidden action.",
+                        "schema": {
+                            "$ref": "#/definitions/Forbidden"
+                        }
+                    },
+                    "501": {
+                        "description": "Not implemented method",
+                        "schema": {
+                            "$ref": "#/definitions/NotImplemented"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/{user_id}": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Sign Up New User",
+                "description": "",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "user_id",
+                        "description": "User's ID",
+                        "required": true,
+                        "type": "number"
+                    },
+                    {
+                        "name": "User",
+                        "in": "body",
+                        "description": "User's first name",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/User"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            },
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Get a specific User",
+                "description": "",
+                "operationId": "getUser",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "user_id",
+                        "description": "User's ID",
+                        "required": true,
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Succesful!",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/User"
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden action.",
+                        "schema": {
+                            "$ref": "#/definitions/Forbidden"
+                        }
+                    },
+                    "501": {
+                        "description": "Not implemented method",
+                        "schema": {
+                            "$ref": "#/definitions/NotImplemented"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Update an existing specific User",
+                "description": "",
+                "operationId": "updateUser",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "user_id",
+                        "description": "User's ID",
+                        "required": true,
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "An array of informations about the user registered on the system.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/User"
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden action.",
+                        "schema": {
+                            "$ref": "#/definitions/Forbidden"
+                        }
+                    },
+                    "501": {
+                        "description": "Not implemented method",
+                        "schema": {
+                            "$ref": "#/definitions/NotImplemented"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Delete a specific User",
+                "description": "",
+                "operationId": "deleteUser",
+                "parameters": [
+                    {
+                        "name": "user_id",
+                        "in": "path",
+                        "description": "User's ID",
+                        "required": true,
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Succesful!",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Place"
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden action.",
+                        "schema": {
+                            "$ref": "#/definitions/Forbidden"
+                        }
+                    },
+                    "501": {
+                        "description": "Not implemented method",
+                        "schema": {
+                            "$ref": "#/definitions/NotImplemented"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/country": {
+            "get": {
+                "summary": "List Country",
+                "description": "This request will return all countries available on database.",
+                "parameters": [
+                    {
+                        "name": "countryName",
+                        "in": "query",
+                        "description": "Country name",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "tags": [
+                    "Country"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Succesful!",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Country"
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden action.",
+                        "schema": {
+                            "$ref": "#/definitions/Forbidden"
+                        }
+                    },
+                    "501": {
+                        "description": "Not implemented method",
+                        "schema": {
+                            "$ref": "#/definitions/NotImplemented"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/country/{countryId}": {
+            "get": {
+                "tags": [
+                    "Country"
+                ],
+                "summary": "Get a specific Country",
+                "description": "",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "countryId",
+                        "description": "Country's ID",
+                        "required": true,
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Succesful!",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Country"
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden action.",
+                        "schema": {
+                            "$ref": "#/definitions/Forbidden"
+                        }
+                    },
+                    "501": {
+                        "description": "Not implemented method",
+                        "schema": {
+                            "$ref": "#/definitions/NotImplemented"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Country"
+                ],
+                "summary": "Register new Country",
+                "description": "",
+                "operationId": "newCountry",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "countryId",
+                        "description": "Country's ID",
+                        "required": true,
+                        "type": "number"
+                    },
+                    {
+                        "in": "body",
+                        "name": "Country",
+                        "description": "Country's informations",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Country"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Succesful!",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Country"
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden action.",
+                        "schema": {
+                            "$ref": "#/definitions/Forbidden"
+                        }
+                    },
+                    "501": {
+                        "description": "Not implemented method",
+                        "schema": {
+                            "$ref": "#/definitions/NotImplemented"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Country"
+                ],
+                "summary": "Update an existing specific Country",
+                "description": "",
+                "operationId": "updateCountry",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "countryId",
+                        "description": "Country's ID",
+                        "required": true,
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Succesful!",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Country"
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden action.",
+                        "schema": {
+                            "$ref": "#/definitions/Forbidden"
+                        }
+                    },
+                    "501": {
+                        "description": "Not implemented method",
+                        "schema": {
+                            "$ref": "#/definitions/NotImplemented"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Country"
+                ],
+                "summary": "Delete a specific Country",
+                "description": "",
+                "operationId": "deleteCountry",
+                "parameters": [
+                    {
+                        "name": "countryId",
+                        "in": "path",
+                        "description": "Country's ID",
+                        "required": true,
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Succesful!",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Country"
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden action.",
+                        "schema": {
+                            "$ref": "#/definitions/Forbidden"
+                        }
+                    },
+                    "501": {
+                        "description": "Not implemented method",
+                        "schema": {
+                            "$ref": "#/definitions/NotImplemented"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/state": {
+            "get": {
+                "summary": "List states",
+                "description": "This request will return all states available on database.",
+                "parameters": [
+                    {
+                        "name": "stateName",
+                        "in": "query",
+                        "description": "State name",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "tags": [
+                    "State"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Succesful!",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/State"
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden action.",
+                        "schema": {
+                            "$ref": "#/definitions/Forbidden"
+                        }
+                    },
+                    "501": {
+                        "description": "Not implemented method",
+                        "schema": {
+                            "$ref": "#/definitions/NotImplemented"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/state/{stateId}": {
+            "get": {
+                "tags": [
+                    "State"
+                ],
+                "summary": "Get a specific State",
+                "description": "",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "stateId",
+                        "description": "State's ID",
+                        "required": true,
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Succesful!",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/State"
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden action.",
+                        "schema": {
+                            "$ref": "#/definitions/Forbidden"
+                        }
+                    },
+                    "501": {
+                        "description": "Not implemented method",
+                        "schema": {
+                            "$ref": "#/definitions/NotImplemented"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "State"
+                ],
+                "summary": "Register new State",
+                "description": "",
+                "operationId": "newState",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "stateId",
+                        "description": "State's ID",
+                        "required": true,
+                        "type": "number"
+                    },
+                    {
+                        "in": "body",
+                        "name": "State",
+                        "description": "state's informations",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/State"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Succesful!",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/State"
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden action.",
+                        "schema": {
+                            "$ref": "#/definitions/Forbidden"
+                        }
+                    },
+                    "501": {
+                        "description": "Not implemented method",
+                        "schema": {
+                            "$ref": "#/definitions/NotImplemented"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "State"
+                ],
+                "summary": "Update an existing specific State",
+                "description": "",
+                "operationId": "updateState",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "stateId",
+                        "description": "State's ID",
+                        "required": true,
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Succesful!",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/State"
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden action.",
+                        "schema": {
+                            "$ref": "#/definitions/Forbidden"
+                        }
+                    },
+                    "501": {
+                        "description": "Not implemented method",
+                        "schema": {
+                            "$ref": "#/definitions/NotImplemented"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "State"
+                ],
+                "summary": "Delete a specific State",
+                "description": "",
+                "operationId": "deleteState",
+                "parameters": [
+                    {
+                        "name": "stateId",
+                        "in": "path",
+                        "description": "State's ID",
+                        "required": true,
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Succesful!",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/State"
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden action.",
+                        "schema": {
+                            "$ref": "#/definitions/Forbidden"
+                        }
+                    },
+                    "501": {
+                        "description": "Not implemented method",
+                        "schema": {
+                            "$ref": "#/definitions/NotImplemented"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/city": {
+            "get": {
+                "summary": "List Cities",
+                "description": "This request will return all cities available on database.",
+                "parameters": [
+                    {
+                        "name": "cityName",
+                        "in": "query",
+                        "description": "City name",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "tags": [
+                    "City"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Succesful!",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/City"
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden action.",
+                        "schema": {
+                            "$ref": "#/definitions/Forbidden"
+                        }
+                    },
+                    "501": {
+                        "description": "Not implemented method",
+                        "schema": {
+                            "$ref": "#/definitions/NotImplemented"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/city/{cityId}": {
+            "get": {
+                "tags": [
+                    "City"
+                ],
+                "summary": "Get a specific City",
+                "description": "",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "cityId",
+                        "description": "City's ID",
+                        "required": true,
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Succesful!",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/City"
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden action.",
+                        "schema": {
+                            "$ref": "#/definitions/Forbidden"
+                        }
+                    },
+                    "501": {
+                        "description": "Not implemented method",
+                        "schema": {
+                            "$ref": "#/definitions/NotImplemented"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "City"
+                ],
+                "summary": "Register new City",
+                "description": "",
+                "operationId": "newCity",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "cityId",
+                        "description": "City's ID",
+                        "required": true,
+                        "type": "number"
+                    },
+                    {
+                        "in": "body",
+                        "name": "City",
+                        "description": "City's informations",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/City"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Succesful!",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/City"
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden action.",
+                        "schema": {
+                            "$ref": "#/definitions/Forbidden"
+                        }
+                    },
+                    "501": {
+                        "description": "Not implemented method",
+                        "schema": {
+                            "$ref": "#/definitions/NotImplemented"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "City"
+                ],
+                "summary": "Update an existing specific City",
+                "description": "...",
+                "operationId": "updateCity",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "cityId",
+                        "description": "City's ID",
+                        "required": true,
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Succesful!",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/City"
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden action.",
+                        "schema": {
+                            "$ref": "#/definitions/Forbidden"
+                        }
+                    },
+                    "501": {
+                        "description": "Not implemented method",
+                        "schema": {
+                            "$ref": "#/definitions/NotImplemented"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "City"
+                ],
+                "summary": "Delete a specific Place",
+                "description": "",
+                "operationId": "deleteCity",
+                "parameters": [
+                    {
+                        "name": "cityId",
+                        "in": "path",
+                        "description": "City's ID",
+                        "required": true,
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Succesful!",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/City"
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden action.",
+                        "schema": {
+                            "$ref": "#/definitions/Forbidden"
+                        }
+                    },
+                    "501": {
+                        "description": "Not implemented method",
+                        "schema": {
+                            "$ref": "#/definitions/NotImplemented"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/places": {
+            "get": {
+                "summary": "List Places",
+                "description": "Esta requisição retornará uma lista de lugares próximos ao usuário,\noferecidos pelo EasyTrip, baseado em sua localização. O retorno \nmostrará nome, distância, rotas e informações sobre o lugar. Além\nde um conjunto de fotos\n",
+                "parameters": [
+                    {
+                        "name": "latitude",
+                        "in": "query",
+                        "description": "Latitude component of location.",
+                        "required": true,
+                        "type": "number",
+                        "format": "double"
+                    },
+                    {
+                        "name": "longitude",
+                        "in": "query",
+                        "description": "Longitude component of location.",
+                        "required": true,
+                        "type": "number",
+                        "format": "double"
+                    }
+                ],
+                "tags": [
+                    "Place"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Succesful!",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Place"
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden action.",
+                        "schema": {
+                            "$ref": "#/definitions/Forbidden"
+                        }
+                    },
+                    "501": {
+                        "description": "Not implemented method",
+                        "schema": {
+                            "$ref": "#/definitions/NotImplemented"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/places/{place_id}": {
+            "get": {
+                "tags": [
+                    "Place"
+                ],
+                "summary": "Get a specific Place",
+                "description": "",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "place_id",
+                        "description": "Place's ID",
+                        "required": true,
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Succesful!",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Place"
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden action.",
+                        "schema": {
+                            "$ref": "#/definitions/Forbidden"
+                        }
+                    },
+                    "501": {
+                        "description": "Not implemented method",
+                        "schema": {
+                            "$ref": "#/definitions/NotImplemented"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Place"
+                ],
+                "summary": "Register new Places",
+                "description": "",
+                "operationId": "newPlace",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "place_id",
+                        "description": "Place's ID",
+                        "required": true,
+                        "type": "number"
+                    },
+                    {
+                        "in": "body",
+                        "name": "Place",
+                        "description": "Place's informations",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Place"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Succesful!",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Place"
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden action.",
+                        "schema": {
+                            "$ref": "#/definitions/Forbidden"
+                        }
+                    },
+                    "501": {
+                        "description": "Not implemented method",
+                        "schema": {
+                            "$ref": "#/definitions/NotImplemented"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Place"
+                ],
+                "summary": "Update an existing specific Place",
+                "description": "",
+                "operationId": "updatePlace",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "place_id",
+                        "description": "Place's ID",
+                        "required": true,
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Succesful!",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Place"
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden action.",
+                        "schema": {
+                            "$ref": "#/definitions/Forbidden"
+                        }
+                    },
+                    "501": {
+                        "description": "Not implemented method",
+                        "schema": {
+                            "$ref": "#/definitions/NotImplemented"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Place"
+                ],
+                "summary": "Delete a specific Place",
+                "description": "",
+                "operationId": "deletePlace",
+                "parameters": [
+                    {
+                        "name": "place_id",
+                        "in": "path",
+                        "description": "Place's ID",
+                        "required": true,
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Succesful!",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Place"
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden action.",
+                        "schema": {
+                            "$ref": "#/definitions/Forbidden"
+                        }
+                    },
+                    "501": {
+                        "description": "Not implemented method",
+                        "schema": {
+                            "$ref": "#/definitions/NotImplemented"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/city/GetCityByName{cityName}": {
+            "get": {
+                "tags": [
+                    "CityByName"
+                ],
+                "summary": "Get a specific City by Name",
+                "description": "",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "cityName",
+                        "description": "City's Name",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Succesful!",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/City"
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden action.",
+                        "schema": {
+                            "$ref": "#/definitions/Forbidden"
+                        }
+                    },
+                    "501": {
+                        "description": "Not implemented method",
+                        "schema": {
+                            "$ref": "#/definitions/NotImplemented"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/city/GetCityByDistance{high_estimate}": {
+            "get": {
+                "tags": [
+                    "CityByDistance"
+                ],
+                "summary": "Get a specific City by Distance",
+                "description": "",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "high_estimate",
+                        "description": "City's Distance",
+                        "required": true,
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Succesful!",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/City"
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden action.",
+                        "schema": {
+                            "$ref": "#/definitions/Forbidden"
+                        }
+                    },
+                    "501": {
+                        "description": "Not implemented method",
+                        "schema": {
+                            "$ref": "#/definitions/NotImplemented"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/place/GetPlaceByName{local_name}": {
+            "get": {
+                "tags": [
+                    "PlaceByName"
+                ],
+                "summary": "Get a specific Place by Name",
+                "description": "",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "local_name",
+                        "description": "Place's Name",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Succesful!",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Route"
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden action.",
+                        "schema": {
+                            "$ref": "#/definitions/Forbidden"
+                        }
+                    },
+                    "501": {
+                        "description": "Not implemented method",
+                        "schema": {
+                            "$ref": "#/definitions/NotImplemented"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/place/GetPlaceByDistance{high_estimate}": {
+            "get": {
+                "tags": [
+                    "PlaceByDistance"
+                ],
+                "summary": "Get a specific Place by Distance",
+                "description": "",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "high_estimate",
+                        "description": "Place's Distance",
+                        "required": true,
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Succesful!",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Route"
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden action.",
+                        "schema": {
+                            "$ref": "#/definitions/Forbidden"
+                        }
+                    },
+                    "501": {
+                        "description": "Not implemented method",
+                        "schema": {
+                            "$ref": "#/definitions/NotImplemented"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/place/photos/{place_id}": {
+            "get": {
+                "tags": [
+                    "Place"
+                ],
+                "summary": "Search Places' photos",
+                "description": "",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "place_id",
+                        "description": "Place's ID",
+                        "required": true,
+                        "type": "number"
+                    },
+                    {
+                        "name": "Photo",
+                        "in": "body",
+                        "description": "Places' photos",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Photo"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Succesful!",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Photo"
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden action.",
+                        "schema": {
+                            "$ref": "#/definitions/Forbidden"
+                        }
+                    },
+                    "501": {
+                        "description": "Not implemented method",
+                        "schema": {
+                            "$ref": "#/definitions/NotImplemented"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Place"
+                ],
+                "summary": "Create Place's photos",
+                "description": "",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "place_id",
+                        "description": "Place's ID",
+                        "required": true,
+                        "type": "number"
+                    },
+                    {
+                        "name": "Photo",
+                        "in": "body",
+                        "description": "Places' photos",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Photo"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Succesful!",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Photo"
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden action.",
+                        "schema": {
+                            "$ref": "#/definitions/Forbidden"
+                        }
+                    },
+                    "501": {
+                        "description": "Not implemented method",
+                        "schema": {
+                            "$ref": "#/definitions/NotImplemented"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Place"
+                ],
+                "summary": "Update an existing specific Places' photos",
+                "description": "",
+                "operationId": "updatePlacesPhotos",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "place_id",
+                        "description": "Place's ID",
+                        "required": true,
+                        "type": "number"
+                    },
+                    {
+                        "name": "Photo",
+                        "in": "body",
+                        "description": "Places' photos",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Photo"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Succesful!",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Photo"
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden action.",
+                        "schema": {
+                            "$ref": "#/definitions/Forbidden"
+                        }
+                    },
+                    "501": {
+                        "description": "Not implemented method",
+                        "schema": {
+                            "$ref": "#/definitions/NotImplemented"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Place"
+                ],
+                "summary": "Delete a specific Places' Photo",
+                "description": "",
+                "operationId": "deletePlacePhoto",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "place_id",
+                        "description": "Place's ID",
+                        "required": true,
+                        "type": "number"
+                    },
+                    {
+                        "name": "Photo",
+                        "in": "body",
+                        "description": "Places' photos",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Photo"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Succesful!",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Photo"
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden action.",
+                        "schema": {
+                            "$ref": "#/definitions/Forbidden"
+                        }
+                    },
+                    "501": {
+                        "description": "Not implemented method",
+                        "schema": {
+                            "$ref": "#/definitions/NotImplemented"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/route": {
+            "get": {
+                "tags": [
+                    "Route"
+                ],
+                "summary": "Enable Routes",
+                "description": "The Enable Routes returns an array of routes is enabled for user get to some place.",
+                "operationId": "getRoutes",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "Destination",
+                        "description": "Destionation's place.",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Destination"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Routes information for a given localization.",
+                        "schema": {
+                            "$ref": "#/definitions/Route"
+                        }
+                    },
+                    "default": {
+                        "description": "asdasdasdasd",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/estimates/time": {
+            "get": {
+                "summary": "Time Estimates",
+                "description": "The Time Estimates endpoint returns an estimate time at a given location and destination, with the responses expressed as integers in seconds. We recommend that this endpoint be called every minute to provide the most accurate.",
+                "parameters": [
+                    {
+                        "name": "start_latitude",
+                        "in": "query",
+                        "description": "Latitude component of start location.",
+                        "required": true,
+                        "type": "number",
+                        "format": "double"
+                    },
+                    {
+                        "name": "start_longitude",
+                        "in": "query",
+                        "description": "Longitude component of start location.",
+                        "required": true,
+                        "type": "number",
+                        "format": "double"
+                    },
+                    {
+                        "name": "customer_uuid",
+                        "in": "query",
+                        "type": "string",
+                        "format": "uuid",
+                        "description": "Unique customer identifier to be used for experience customization."
+                    },
+                    {
+                        "name": "product_id",
+                        "in": "query",
+                        "type": "string",
+                        "description": "Unique identifier representing a specific product for a given latitude & longitude."
+                    }
+                ],
+                "tags": [
+                    "Route"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "An array of places",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Place"
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "User": {
+            "type": "object",
+            "required": [
+                "name",
+                "username",
+                "password",
+                "email",
+                "profile"
+            ],
+            "properties": {
+                "user_id": {
+                    "type": "number",
+                    "description": "Unique identifier representing a specific user | identificador único de um usuário Ex - CPF, RG"
+                },
+                "birth_date": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "User's birthday date | Data de aniversário do usuário"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "User's first name | Primeiro nome do usuário"
+                },
+                "username": {
+                    "type": "string",
+                    "description": "User's username | Username do usuário"
+                },
+                "password": {
+                    "type": "string",
+                    "format": "md5",
+                    "description": "User's password | Senha do usuário"
+                },
+                "email": {
+                    "type": "string",
+                    "description": "User's email | Email do usuário"
+                },
+                "profile": {
+                    "type": "string",
+                    "description": "User's account type | Tipo da conta do usuário. Ex - normal, admin"
+                },
+                "register": {
+                    "type": "number",
+                    "description": "User's register number | Número de registro do usuário. Ex - CPF ou RG"
+                },
+                "active": {
+                    "type": "string",
+                    "description": "User's actual situation | Situação atual do usuário Ex - Y - Ativo / N - Inativo"
+                }
+            }
+        },
+        "Profile": {
+            "type": "object",
+            "properties": {
+                "user_id": {
+                    "type": "number",
+                    "description": "Unique identifier representing a specific user | identificador único de um usuário Ex - CPF, RG"
+                },
+                "first_name": {
+                    "type": "string",
+                    "description": "User's first name | Primeiro nome do usuário"
+                },
+                "last_name": {
+                    "type": "string",
+                    "description": "User's last name | Sobrenome do usuário"
+                },
+                "email": {
+                    "type": "string",
+                    "description": "User's email | Email do usuário"
+                },
+                "picture": {
+                    "type": "string",
+                    "description": "User's profile image | Imagem do usuário."
+                }
+            }
+        },
+        "City": {
+            "type": "object",
+            "required": [
+                "cityName",
+                "codState",
+                "cityId"
+            ],
+            "properties": {
+                "cityId": {
+                    "type": "number",
+                    "description": "Unique identifier representing a specific city."
+                },
+                "cityName": {
+                    "type": "string",
+                    "description": "City's Name."
+                },
+                "codState": {
+                    "type": "number",
+                    "description": "Unique identifier representing a specific state which is related to the city."
+                }
+            }
+        },
+        "State": {
+            "type": "object",
+            "required": [
+                "stateName",
+                "stateId",
+                "stateIni",
+                "codCountry"
+            ],
+            "properties": {
+                "stateId": {
+                    "type": "number",
+                    "description": "Unique identifier representing a specific state."
+                },
+                "stateName": {
+                    "type": "string",
+                    "description": "State's Name."
+                },
+                "stateIni": {
+                    "type": "string",
+                    "description": "State's Initials."
+                },
+                "codCountry": {
+                    "type": "number",
+                    "description": "Unique identifier representing a specific country which is related to the state."
+                }
+            }
+        },
+        "Country": {
+            "type": "object",
+            "required": [
+                "countryName",
+                "countryId",
+                "countryIni"
+            ],
+            "properties": {
+                "countryId": {
+                    "type": "number",
+                    "description": "Unique identifier representing a specific country."
+                },
+                "countryName": {
+                    "type": "string",
+                    "description": "Country's Name."
+                },
+                "countryIni": {
+                    "type": "string",
+                    "description": "Country's Initials."
+                }
+            }
+        },
+        "Place": {
+            "type": "object",
+            "required": [
+                "place_id",
+                "local_name",
+                "latitude_point",
+                "longitude_point"
+            ],
+            "properties": {
+                "place_id": {
+                    "type": "number",
+                    "description": "Unique identifier representing a specific place for a given latitude & longitude. | Identificador único representando um lugar específico, dada uma latitude e longitude."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Description of the place. | Descrição do Local"
+                },
+                "latitude_point": {
+                    "type": "number",
+                    "description": "Places's latitude point"
+                },
+                "longitude_point": {
+                    "type": "number",
+                    "description": "Place's longitude point",
+                    "format": "int32"
+                },
+                "local_name": {
+                    "type": "string",
+                    "description": "Display name of the place. | Nome do Local"
+                },
+                "cod_state": {
+                    "type": "string",
+                    "description": "Place's state. For example - São Paulo, Rio de Janeiro. | Estado do Local. Ex - São Paulo, Rio de Janeiro."
+                },
+                "image": {
+                    "type": "string",
+                    "description": "Image URL representing the place. | Imagem que represente o Local"
+                }
+            }
+        },
+        "Destination": {
+            "type": "object",
+            "required": [
+                "place_id",
+                "local_name",
+                "latitude_point",
+                "longitude_point"
+            ],
+            "properties": {
+                "place_id": {
+                    "type": "number",
+                    "description": "Unique identifier representing a specific place for a given latitude & longitude. | Identificador único representando um lugar específico, dada uma latitude e longitude."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Description of the place. | Descrição do Local"
+                },
+                "latitude_point": {
+                    "type": "number",
+                    "description": "Places's latitude point"
+                },
+                "longitude_point": {
+                    "type": "number",
+                    "description": "Place's longitude point",
+                    "format": "int32"
+                },
+                "local_name": {
+                    "type": "string",
+                    "description": "Display name of the place. | Nome do Local"
+                },
+                "state": {
+                    "type": "string",
+                    "description": "Place's state. For example - São Paulo, Rio de Janeiro. | Estado do Local. Ex - São Paulo, Rio de Janeiro."
+                },
+                "image": {
+                    "type": "string",
+                    "description": "Image URL representing the place. | Imagem que represente o Local"
+                }
+            }
+        },
+        "Route": {
+            "type": "object",
+            "required": [
+                "route_id",
+                "id_place1",
+                "id_place2"
+            ],
+            "properties": {
+                "route_id": {
+                    "type": "string",
+                    "description": "Unique identifier representing a specific route between two places using a highway. | Identificador único representando uma rota específica entre dois locais, utilizando uma rodovia."
+                },
+                "id_place1": {
+                    "type": "string",
+                    "description": "Unique identifier representing a specific place '#1'."
+                },
+                "id_place2": {
+                    "type": "string",
+                    "description": "Unique identifier representing a specific place '#2'."
+                },
+                "distance_estimate": {
+                    "type": "string",
+                    "description": "The distance estimated between 2 places, already formated on the String | A distância estimada entre 2 locais, já formatada numa String"
+                },
+                "low_estimate": {
+                    "type": "number",
+                    "description": "Lower bound of the estimated ditance | O limite inferior da distância estimada"
+                },
+                "high_estimate": {
+                    "type": "number",
+                    "description": "Upper bound of the estimated ditance. | O limite máximo da distância estimada."
+                }
+            }
+        },
+        "Photo": {
+            "type": "object",
+            "required": [
+                "id_photo",
+                "photo"
+            ],
+            "properties": {
+                "id_photo": {
+                    "type": "number",
+                    "description": "Unique identifier of photos."
+                },
+                "photo": {
+                    "type": "object",
+                    "description": "Photos uploaded. Can be user, place, accomodation, services or products photos."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Description of photos."
+                }
+            }
+        },
+        "Error": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "fields": {
+                    "type": "string"
+                }
+            }
+        },
+        "Forbidden": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "fields": {
+                    "type": "string"
+                }
+            }
+        },
+        "NotImplemented": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "fields": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

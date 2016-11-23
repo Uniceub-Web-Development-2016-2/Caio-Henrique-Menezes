@@ -17,7 +17,7 @@
 	
 	<script type="text/javascript">	
 	function initMap() {
-		 var UserPosition = new google.maps.LatLng(-18.8800497, -47.05878999999999);
+		var UserPosition = new google.maps.LatLng(-18.8800497, -47.05878999999999);
 	    var myOptions = {
 	        center: UserPosition,
 	        zoom: 4,
@@ -47,7 +47,7 @@
 	  mapholder=document.getElementById('map')
 	 
 	  var myOptions={
-	  center:latlon,zoom:10,
+	  center:latlon,zoom:8,
 	  mapTypeId:google.maps.MapTypeId.ROADMAP,
 	  mapTypeControl:false,
 	  navigationControlOptions:{style:google.maps.NavigationControlStyle.SMALL}
@@ -86,11 +86,11 @@
 				<li class="active">
 					<a href="#">Home</a>
 				</li>
-				<li>
-					<a href="#">Profile</a>
+				<li >
+					<a href="formUser.html">Register</a>
 				</li>
-				<li class="disabled">
-					<a href="#">Messages</a>
+				<li>
+					<a href="search.html">Search</a>
 				</li>
 				<li class="dropdown pull-right">
 					 <a href="#" data-toggle="dropdown" class="dropdown-toggle">Profile<strong class="caret"></strong></a>
@@ -107,7 +107,11 @@
 						<li class="divider">
 						</li>
 						<li>
-							<a href="#">Log Off</a>
+							<li>
+								<a href="login.html">Log In/Out</a>
+
+							</li>
+							
 						</li>
 					</ul>
 				</li>
@@ -148,8 +152,8 @@
 		</div>
 	</div>
 
-	<script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+	<script src="js/easytripJquery.js"></script>
+    <script src="js/easytrip.js"></script>
     <script src="js/scripts.js"></script>
   </body>
 </html>
