@@ -29,7 +29,7 @@ class ResourceController
 
 	private function search($request) {
 		$query = 'SELECT * FROM '.$request->getResource().' WHERE '.self::queryParams($request->getParameters());
-		//var_dump($query);
+		// var_dump($query);
 		$result = (new DBConnector())->query($query);
 		return $result->fetchAll(PDO::FETCH_ASSOC);
 		//return $query; 
@@ -39,7 +39,6 @@ class ResourceController
 	private function select($query){
 		$connect = (new DBConnector())->query($query);
 		var_dump($query);
-		die();
 		return $connect->fetchAll(PDO::FETCH_ASSOC);
         	return $connect;
 	}

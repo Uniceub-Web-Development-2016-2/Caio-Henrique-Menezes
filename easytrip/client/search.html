@@ -1,7 +1,10 @@
 <html>
 <head>
-<meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"></script>
 <title></title>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACeINkvYJeWxeaSs7u4ZVJNfmQdCSvE6Q&libraries=places"></script>
 </head>
 <body>
 	<div class="search_user" id="search_user">
@@ -10,17 +13,21 @@
 			<input type='text' name='name' placeholder='Name...'>
 			<input type='submit' value='submit'>
 		</form>
+		<br>
+		<form class="form-horizontal" action="allUsers.php" method="get">
+			<input type='submit' value='Procurar todos os Usuários'>
+		</form>
 	</div>
 
 	<div class="search_cities" id="search_cities">
 	<h3>Busca de cidades</h3>
 		<form class="form-horizontal" action="search_cities.php" method="get">
 			<p>Digite o nome da cidade abaixo:</p>
-			<input type='text' name='cityName' placeholder='City Name...'>
+			<input type='text' id="pac-input" name='cityName' placeholder='City Name...' autocomplete="off">
 			<input type='submit' value='submit'>
 		</form>
 		<br>
-		<form class="form-horizontal" action="requests.php" method="get">
+		<form class="form-horizontal" action="allCities.php" method="get">
 			<input type='submit' value='Procurar todas as cidades'>
 		</form>
 	</div>

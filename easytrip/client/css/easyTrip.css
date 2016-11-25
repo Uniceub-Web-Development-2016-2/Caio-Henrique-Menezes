@@ -16,11 +16,13 @@ body {
 
 .contMap {
 	height: 80%;
-	width: 75%;
-	margin-left: 15%;
-	border: 1px solid #999;
+	width: 100%;
 	position: absolute;
-	color: fuchsia;
+	color: black;
+}
+
+.container-desc {
+	margin-left: 2%;
 }
 	
 .btnLocal {
