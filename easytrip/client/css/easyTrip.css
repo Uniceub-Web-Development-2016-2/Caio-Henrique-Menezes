@@ -14,6 +14,23 @@ body {
 	margin: 0
 }
 
+.btnLocal {
+		position: absolute;
+		background-color: #fff;
+		border-radius: 1px solid #999;
+        top: 5px;
+        left: 45%;
+        width: 200px;
+        padding: 5px;
+        border: 1px solid #999;
+}
+
+/*
+.cont-button{
+		position: absolute;
+}
+*/
+
 .contMap {
 	height: 80%;
 	width: 100%;
@@ -24,18 +41,14 @@ body {
 .container-desc {
 	margin-left: 2%;
 }
+
+/*.contButton {
+	display: inline;
+
 	
-.btnLocal {
-        position: absolute;
-        top: 5px;
-        left: 50%;
-        margin-left: -180px;
-        width: 350px;
-        z-index: 5;
-        background-color: #fff;
-        padding: 5px;
-        border: 1px solid #999;
+
 }
+*/
 
 #map {
 	height: 100%;

@@ -20,13 +20,21 @@ if ($_POST ["email"] != null && $_POST ["pwd"] != null) {
 
 	// var_dump($array['pwd']);
 	// die();
-	if (! empty ( $array ) && $array ["email"] == $_POST ["email"] && $array ["pwd"] == $array ["pwd"])
+	if (! empty ( $array ) && $array ["email"] == $_POST ["email"] && $array ["pwd"] == $array ["pwd"]){
 	// if((new Crypt)->verifyHash($_POST['pwd'], $array['pwd']))
-		header ( "Location: profile.php" );
-	else
+		session_start();
+		$_SESSION['id'] = $_POST['id'];
+		$_SESSION['name'] = $_POST['name'];
+		$_SESSION['profile'] = $_POST['profile'];
+		header ( "Location: index.php" );
+	}
+	else {
 		// var_dump($array);
-		echo "Pode não mano veio!";
-		
+		echo '<script language="javascript">';
+		echo 'alert("Wrong email/password!")';
+		echo '</script>';
+		header ( "Location: login.phtml" );
+	}
 	// chamar página de erro
 }
 

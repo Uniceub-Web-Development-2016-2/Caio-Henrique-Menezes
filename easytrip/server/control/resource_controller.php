@@ -16,6 +16,9 @@ class ResourceController
 		{	
 			return $this->login($request);
 		}
+		else if($request->getMethod() == "DELETE" && $request->getOperation == "me"){
+			return $this->remove($request);
+		}
 		return $this->{$this->METHODMAP[$request->getMethod()]}($request);
 	
 	}
@@ -27,9 +30,18 @@ class ResourceController
 		
 	}
 
+	public function remove($request) {
+		update($request);
+	}
+
 	private function search($request) {
+
 		$query = 'SELECT * FROM '.$request->getResource().' WHERE '.self::queryParams($request->getParameters());
+		if ($request->getResource() == "user"){
+			$query." AND active = 'y';";
+		}
 		// var_dump($query);
+		// die();
 		$result = (new DBConnector())->query($query);
 		return $result->fetchAll(PDO::FETCH_ASSOC);
 		//return $query; 
@@ -56,8 +68,7 @@ class ResourceController
 		//var_dump($body);
 		$resource = $request->getResource();		
 		$query = 'INSERT INTO '.$resource.' ('.$this->getColumns($body).') VALUES ('.$this->getValues($body).')';
-		return self::execution_query($query);
-		 
+		return self::execution_query($query);		 
 	}
 
 	private function bodyParams($json) {

@@ -9,7 +9,7 @@
     <title>EasyTrip</title>
 
 
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"></script>
+<!--     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"></script> -->
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="css/easyTrip.css" rel="stylesheet">
@@ -30,28 +30,29 @@
 					<a href="#">Home</a>
 				</li>
 				<li >
-					<a href="formUser.html">Register</a>
+					<a href="formUser.phtml">Register</a>
 				</li>
 				<li>
-					<a href="search.html">Search</a>
+					<a href="search.php">Search</a>
 				</li>
 				<li class="dropdown pull-right">
 					 <a href="#" data-toggle="dropdown" class="dropdown-toggle"><i class="fa fa-user-circle fa-lg" aria-hidden="true"></i><strong class="caret"></strong></a>
 					<ul class="dropdown-menu">
 						<li>
-							<a href="#">Edit Profile</a>
+							<a href="editProfile.phtml">Edit Profile</a>
 						</li>
 						<li>
-							<a href="#">Settings</a>
+							<a href="#" style="cursor:not-allowed">Settings</a>
 						</li>
 						<li>
-							<a href="#">Support</a>
+							<a href="#" style="cursor:not-allowed">Support</a>
 						</li>
 						<li class="divider">
 						</li>
 						<li>
 							<li>
-								<a href="login.html">Log In/Out</a>
+								<a href="login.phtml">Log In</a>
+								<a href="logout.php">Log Out</a>
 
 							</li>
 							
@@ -64,7 +65,14 @@
 	</div>
 </div>
 	<div class="contMap">
-		<button type="button" class="btnLocal" onclick="getLocation()"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i>  Minha Localiza&ccedil;&atilde;o</button>
+		<div class="contButton">
+				<button type="button" class="btnLocal" onclick="getLocation()"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i>  Minha Localiza&ccedil;&atilde;o</button>
+
+				<form class="search" action="search_cities.php" method="get">
+						<input class="span2" type="text" name='cityName' placeholder="City Name...">
+	    				<button class="add-on"><i class="fa fa-search fa-lg" aria-hidden="true"></i></button>
+				</form>
+		</div>
 		<div id="map"></div>
 		<div class="container-desc">
 			<address>

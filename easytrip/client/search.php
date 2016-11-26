@@ -34,11 +34,13 @@
 		</form>
 	</div>
 
-<?php
+  <?php
 
   	include ('httpful.phar');
 
-  	$url = 'http://getnearbycities.geobytes.com/GetNearbyCities?callback=?&radius=100&locationcode=latitude=40.74879&longitude=-73.9845';
+  	$url = 'https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyA0cpoHLov_9bYKK5EjN9ZThLTKwOHzRI0';
+
+  	// $url = 'http://getnearbycities.geobytes.com/GetNearbyCities?callback=?&radius=100&latitude=40.74879&longitude=-73.9845';
 
   	$response = \Httpful\Request::get ( $url )->send ();
 

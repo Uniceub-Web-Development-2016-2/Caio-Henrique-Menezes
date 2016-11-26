@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<head></head>
+<body>
+
+    <form class="form-horizontal">
+    <fieldset>
+
+    <!-- Form Name -->
+    <legend>Edit User</legend>
+			<div>
+				<?php
+				session_start();
+				
+					editProfile($_POST['id']);
+				?>
+			</div>
+
+	    </fieldset>
+    </form>
+</body>
+</html>
