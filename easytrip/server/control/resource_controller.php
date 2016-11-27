@@ -15,8 +15,7 @@ class ResourceController
 		if ($request->getMethod() == "POST" && $request->getOperation() == "login")
 		{	
 			return $this->login($request);
-		}
-		else if ($request->getMethod() == "DELETE" && $request->getOperation == "me") {
+		} else if ($request->getMethod() == "DELETE" && $request->getOperation == "me") {
 			return $this->remove($request);
 		}
 		return $this->{$this->METHODMAP[$request->getMethod()]}($request);
@@ -51,7 +50,7 @@ class ResourceController
 	/**
 	 * @param string $query
 	 */
-	private function select($query){
+	private function select($query) {
 		$connect = (new DBConnector())->query($query);
 		// var_dump($query);
 		return $connect->fetchAll(PDO::FETCH_ASSOC);
@@ -76,12 +75,12 @@ class ResourceController
 
 	private function bodyParams($json) {
 		$criteria = "";
-                $array = json_decode($json, true);
-                foreach ($array as $key => $value) {
-                                $criteria .= $key." = '".$value."' AND ";
+				$array = json_decode($json, true);
+				foreach ($array as $key => $value) {
+								$criteria .= $key." = '".$value."' AND ";
                  
-                }
-                return substr($criteria, 0, -5);
+				}
+				return substr($criteria, 0, -5);
 	
 		
 	}
@@ -102,7 +101,7 @@ class ResourceController
 			}
 			$query = substr($query, 0, -5);
 			return $query;
-		}else {
+		} else {
 			return 1;
 		}
 	}
@@ -113,10 +112,10 @@ class ResourceController
 		//echo ($query);
 
 		if ($conn->query($query) == TRUE) {
-                	echo "New record created successfully!";
-        	}else {
-                	echo "Error: ".$query."<br>";
-        	}
+					echo "New record created successfully!";
+			}else {
+					echo "Error: ".$query."<br>";
+			}
 	}
 		
 	private function getUpdateCriteria($json) {
@@ -124,8 +123,9 @@ class ResourceController
 		$where = " WHERE ";
 		$array = json_decode($json, true);
 		foreach ($array as $key => $value) {
-			if ($key != 'id')
-				$criteria .= $key." = '".$value."',";
+			if ($key != 'id') {
+							$criteria .= $key." = '".$value."',";
+			}
 			
 		}
 		return substr($criteria, 0, -1).$where." id = '".$array['id']."'";
@@ -139,12 +139,12 @@ class ResourceController
 	}
 
 	private function getValues($json) {
-                $array = json_decode($json, true);
-                $values = array_values($array);
-                $string = implode("','", $values);
+				$array = json_decode($json, true);
+				$values = array_values($array);
+				$string = implode("','", $values);
 		return "'".$string."'";
         
-        }
+		}
 	
 }
 

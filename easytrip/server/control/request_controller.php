@@ -21,8 +21,9 @@ class RequestController
 	
 	public function is_valid_method($method)
 	{
-		if (is_null($method) || !in_array($method, self::VALID_METHODS))
-			return false;
+		if (is_null($method) || !in_array($method, self::VALID_METHODS)) {
+					return false;
+		}
 		
 		return true;
 	}
