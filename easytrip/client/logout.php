@@ -6,11 +6,11 @@
 
 			<?php
 
-				function logout(){
+				function logout() {
 						echo '<script language="javascript">';
 						echo 'alert("Logging Out!")';
 						echo '</script>';
-						header ( "Location: index.php" );
+						header("Location: index.php");
 				}
 					
 			?>	

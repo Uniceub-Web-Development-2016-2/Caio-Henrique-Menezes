@@ -16,4 +16,4 @@ include ('crypt.php');
 	
 	$body = json_encode($_POST);
 
-	$response = \Httpful\Request::post ( $url )->sendsJson ()->body ( $body )->send ();
+	$response = \Httpful\Request::post($url)->sendsJson()->body($body)->send();

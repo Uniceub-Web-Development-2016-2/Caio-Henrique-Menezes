@@ -44,7 +44,7 @@
 
   	// $url = 'http://getnearbycities.geobytes.com/GetNearbyCities?callback=?&radius=100&latitude=40.74879&longitude=-73.9845';
 
-  	$response = \Httpful\Request::get ( $url )->send ();
+  	$response = \Httpful\Request::get($url)->send();
 
   	print_r($response);
 

@@ -3,18 +3,18 @@ header('Content-Type: text/html; charset=utf-8');
 include('httpful.phar');
 
 
-    function editProfile($id)
-    {
-        $request = 'http://localhost/easytrip/user/me?id='.$id;
-        $response = \Httpful\Request::get($request)->send();
-        $array = json_decode($response->body, true);
+	function editProfile($id)
+	{
+		$request = 'http://localhost/easytrip/user/me?id='.$id;
+		$response = \Httpful\Request::get($request)->send();
+		$array = json_decode($response->body, true);
 
-        var_dump($response);
-        die();
+		var_dump($response);
+		die();
         
-        foreach ($array as $key => $value)
-        {
-            echo '
+		foreach ($array as $key => $value)
+		{
+			echo '
 
                     <div class="form-group">
                       <label class="col-md-4 control-label" for="textinput">Name:</label>  
@@ -57,6 +57,6 @@ include('httpful.phar');
                     <br>
                     <button class="btn btn-success botao" type="saveEdit.php">Save</button>
                     <button class="btn btn-success botao" type="deleteUser.php">Delete</button>'
-        }
+		}
 
-    }
+	}
