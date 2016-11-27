@@ -6,6 +6,6 @@ include ('httpful.phar');
 	
 	$url = "http://localhost/easytrip/server/user/?".$_SERVER['QUERY_STRING'];
 
-	$response = \Httpful\Request::get ( $url )->send ();
+	$response = \Httpful\Request::get($url)->send();
 	
 	echo $response->body;
