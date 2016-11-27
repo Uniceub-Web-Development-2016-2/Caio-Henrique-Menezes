@@ -38,7 +38,9 @@
 
   	include ('httpful.phar');
 
-  	$url = 'https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyA0cpoHLov_9bYKK5EjN9ZThLTKwOHzRI0';
+  	// $url = 'https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyA0cpoHLov_9bYKK5EjN9ZThLTKwOHzRI0';
+
+  	$url = 'https://maps.googleapis.com/maps/api/place/autocomplete/json?input=Nat&types=(cities)&language=pt_BR&key=AIzaSyA0cpoHLov_9bYKK5EjN9ZThLTKwOHzRI0';
 
   	// $url = 'http://getnearbycities.geobytes.com/GetNearbyCities?callback=?&radius=100&latitude=40.74879&longitude=-73.9845';
 

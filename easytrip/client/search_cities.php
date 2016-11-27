@@ -19,13 +19,13 @@ include ('httpful.phar');
 	$response = \Httpful\Request::get ( $url )->send ();
 	
 	// $response->body;
-	echo "$response";
-	die();
-	$predictions = json_decode($response, true)[0];
+	// echo "$response";
+	// die();
+	$predictions = json_decode($response, true);
 
 	// var_dump($predictions);
 	// die();
 
-	foreach ($predictions as $key => $value) {
+	foreach ($predictions['predictions'] as $key => $value) {
 		echo 'Cidade: '.$value['description'].'<br>';
 	}

@@ -5,6 +5,7 @@ function initMap() {
 	    var myOptions = {
 	        center: UserPosition,
 	        zoom: 4,
+	        maxZoom: 19,
 	        mapTypeId: google.maps.MapTypeId.ROADMAP,
 	        mapTypeControl:false
 	    };
@@ -37,7 +38,14 @@ function initMap() {
 	  navigationControlOptions:{style:google.maps.NavigationControlStyle.SMALL}
 	  };
 	  var map = new google.maps.Map(document.getElementById("map"),myOptions);
-	  var marker = new google.maps.Marker({position:latlon,map:map,title:"Você está Aqui!"});
+	  var marker = new google.maps.Marker({position:latlon,map:map, title:"Você está Aqui!"});
+
+	  showCities(lat, lon);
+	  }
+
+	  function showCities(lat, lon){
+	  	getnearbycities.geobytes.com/GetNearbyCities?callback=?&radius=100&latitude=lat&longitude=-lon;
+
 	  }
 	 
 	function showError(error)
@@ -57,4 +65,5 @@ function initMap() {
 	      x.innerHTML="Algum erro desconhecido aconteceu."
 	      break;
 	    }
+
 	  }

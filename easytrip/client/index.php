@@ -65,15 +65,10 @@
 	</div>
 </div>
 	<div class="contMap">
-		<div class="contButton">
 				<button type="button" class="btnLocal" onclick="getLocation()"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i>  Minha Localiza&ccedil;&atilde;o</button>
-
-				<form class="search" action="search_cities.php" method="get">
-						<input class="span2" type="text" name='cityName' placeholder="City Name...">
-	    				<button class="add-on"><i class="fa fa-search fa-lg" aria-hidden="true"></i></button>
-				</form>
-		</div>
+		
 		<div id="map"></div>
+		
 		<div class="container-desc">
 			<address>
 				<strong>Twitter, Inc.</strong> <br> 795 Folsom Ave, Suite 600<br>

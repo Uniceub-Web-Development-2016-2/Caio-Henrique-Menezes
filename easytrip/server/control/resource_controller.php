@@ -50,9 +50,9 @@ class ResourceController
 
 	private function select($query){
 		$connect = (new DBConnector())->query($query);
-		var_dump($query);
+		// var_dump($query);
 		return $connect->fetchAll(PDO::FETCH_ASSOC);
-        	return $connect;
+        	// return $connect;
 	}
 
 	private function update($request) {
