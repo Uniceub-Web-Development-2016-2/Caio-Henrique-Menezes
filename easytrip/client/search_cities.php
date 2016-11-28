@@ -16,7 +16,7 @@ include ('httpful.phar');
 	$url = "https://maps.googleapis.com/maps/api/place/autocomplete/json?input=".$stringSearch."&language=pt_BR&key=AIzaSyAufXuuBKyshSWSgAjk87BHLiDS3iquQLs";
 
 
-	$response = \Httpful\Request::get($url)->send();
+	$response = \Httpful\Request::get ( $url )->send ();
 	
 	// $response->body;
 	// echo "$response";

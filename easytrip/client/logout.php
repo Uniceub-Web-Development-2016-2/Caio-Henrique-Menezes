@@ -6,12 +6,10 @@
 
 			<?php
 
-				function logout() {
-						echo '<script language="javascript">';
-						echo 'alert("Logging Out!")';
-						echo '</script>';
-						header("Location: index.php");
-				}
+			session_start();
+			session_reset();
+			session_destroy();
+			header("Location: index.php");	
 					
 			?>	
 

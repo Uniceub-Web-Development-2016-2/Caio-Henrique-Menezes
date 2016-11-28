@@ -7,7 +7,13 @@ $get_request = 'http://localhost/easytrip/server/city/allCities';
 $response = \Httpful\Request::get($get_request)->send();
 
 // $response->body;
+
+
 $arr = json_decode($response->body, true);
+
+var_dump($response);
+die();
+
 
 foreach ($arr as $key => $value) {
 	echo 'Cidade: '.$value['cityName'].'<br>';

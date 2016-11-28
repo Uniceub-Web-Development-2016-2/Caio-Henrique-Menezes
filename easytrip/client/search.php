@@ -13,7 +13,7 @@
 	<h3>Busca de usuário</h3>
 		<form class="form-horizontal" action="search_user.php" method="get">
 			<input type='text' name='name' placeholder='Name...'>
-			<input type='submit' value='submit'>
+			<input type='submit' value='Procurar'>
 		</form>
 		<br>
 		<form class="form-horizontal" action="allUsers.php" method="get">
@@ -26,7 +26,7 @@
 		<form class="form-horizontal" action="search_cities.php" method="get">
 			<p>Digite o nome da cidade abaixo:</p>
 			<input type='text' id="pac-input" name='cityName' placeholder='City Name...' autocomplete="off">
-			<input type='submit' value='submit'>
+			<input type='submit' value='Procurar'>
 		</form>
 		<br>
 		<form class="form-horizontal" action="allCities.php" method="get">
@@ -44,7 +44,7 @@
 
   	// $url = 'http://getnearbycities.geobytes.com/GetNearbyCities?callback=?&radius=100&latitude=40.74879&longitude=-73.9845';
 
-  	$response = \Httpful\Request::get($url)->send();
+  	$response = \Httpful\Request::get ( $url )->send ();
 
   	print_r($response);
 

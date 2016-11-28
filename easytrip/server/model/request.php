@@ -8,28 +8,24 @@ class Request {
 	private $operation;
 	private $params;
 	private $body;
-
-	/**
-	 * @param string $body
-	 */
 	public function __construct($method, $protocol, $serverAddress, $clientAddress, $path, $queryString, $body) {
 		$this->method = $method;
 		$this->protocol = $protocol;
 		$this->server_ip = $serverAddress;
 		$this->remote_ip = $clientAddress;
-		$this->setResource($path);
-		$this->setOperation($path);
-		$this->setParams($queryString);
+		$this->setResource ( $path );
+		$this->setOperation ( $path );
+		$this->setParams ( $queryString );
 		$this->body = $body;
 	}
 	public function toString() {
 		$request = "";
 		$Inc = 1;
-		foreach ($this->params as $param) {
-			$request .= "P".$Inc."=".$param."&amp";
-			$Inc++;
+		foreach ( $this->params as $param ) {
+			$request .= "P" . $Inc . "=" . $param . "&amp";
+			$Inc ++;
 		}
-		return $this->protocol.'://'.$this->server_ip.'/'.$this->resource.'?'.$request;
+		return $this->protocol . '://' . $this->server_ip . '/' . $this->resource . '?' . $request;
 	}
 	public function setMethod($method) {
 		$this->method = $method;
@@ -56,18 +52,18 @@ class Request {
 		return $this->remote_ip;
 	}
 	public function setResource($resource) {
-		$s = explode("?", $resource);
-		$r = explode("/", $s [0]);
+		$s = explode ( "?", $resource );
+		$r = explode ( "/", $s [0] );
 		$this->resource = $r [3];
 	}
 	public function getResource() {
 		return $this->resource;
 	}
 	public function setOperation($path) {
-		$s = explode("?", $path);
-		$r = explode("/", $s [0]);
+		$s = explode ( "?", $path );
+		$r = explode ( "/", $s [0] );
 		// print_r($r[4]);
-		if (count($r) > 3) {
+		if(count($r) > 3){
 			$this->operation = $r[4];
 		}
 	}
@@ -75,7 +71,7 @@ class Request {
 		return $this->operation;
 	}
 	public function setParams($paramsString) {
-		parse_str($paramsString, $paramsArray);
+		parse_str ( $paramsString, $paramsArray );
 		$this->params = $paramsArray;
 	}
 	public function getParameters() {

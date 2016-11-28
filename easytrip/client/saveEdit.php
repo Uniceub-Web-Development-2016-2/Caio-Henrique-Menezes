@@ -8,4 +8,4 @@ $url = "http://localhost/easytrip/server/user/me";
 	var_dump($body);
 	die();
 
-	$response = \Httpful\Request::post($url)->sendsJson()->body($body)->send();
+	$response = \Httpful\Request::post ( $url )->sendsJson ()->body ( $body )->send ();

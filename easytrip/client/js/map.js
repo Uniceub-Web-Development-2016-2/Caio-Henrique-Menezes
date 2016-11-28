@@ -40,13 +40,13 @@ function initMap() {
 	  var map = new google.maps.Map(document.getElementById("map"),myOptions);
 	  var marker = new google.maps.Marker({position:latlon,map:map, title:"Você está Aqui!"});
 
-	  showCities(lat, lon);
+	  //showCities(lat, lon);
 	  }
 
-	  function showCities(lat, lon){
-	  	getnearbycities.geobytes.com/GetNearbyCities?callback=?&radius=100&latitude=lat&longitude=-lon;
+	  // function showCities(lat, lon){
+	  // 	getnearbycities.geobytes.com/GetNearbyCities?callback=?&radius=100&latitude=lat&longitude=-lon;
 
-	  }
+	  // }
 	 
 	function showError(error)
 	  {
